@@ -1,8 +1,15 @@
 <header>
     <div class="information">
-        <span></span>
-        <span></span>
-        <span></span>
+        <div>
+        <span class="material-symbols-outlined">call</span>
+            <span>+(73)999984706</span>
+        </div>
+        <div>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+        </div>
     </div>
     <nav class="header">
         <a href=""></a>
