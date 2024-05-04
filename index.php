@@ -12,40 +12,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-    <div class="information">
-        <div>
-            <span class="material-icons">call</span>
-            <span style="letter-spacing: 1px;" >+(73)999984706</span>
-        </div>
-        <div>
-            <span class="material-icons">mail</span>
-            <span style="letter-spacing: 1px;" >NATUILHEUS@GMAIL.COM</span>
-        </div>
-        <div>
-            <span style="letter-spacing: 1px;">ENTREGAMOS EM TODO PAÍS & FRETE GRÁTIS</span>
-        </div>
-    </div>
-    <nav class="header">
-        <a href="index.php" style="letter-spacing: 1.5px;">NATU ILHÉUS</a>
-        <ul class="paginas">
-            <li>
-                <a href="about.php">Sobre</a>
-            </li>
-            <li>
-                <a href="#products">Produtos</a>
-            </li>
-            <li>
-                <a href="contact.php">Contato</a>
-            </li>
-            <li>
-                <span class="material-icons"><a href="cart.php">shopping_cart</a></span>
-            </li>
-        </ul>
-    </nav>
-</header>
+<?php
+    include('inc/header.php');
+?>
 <main>
-<div class="principal"></div>
+    <section class="principal">
+        <div class="textocontainer1">
+            <h1>TRAZENDO O MELHOR PARA VOCÊ</h1>
+            <p><a href="#products">Ver Produtos</a></p>
+        </div>
+    </section>
+    <section class="publicidade">
+        
+    </section>
 </main>
 </body>
+<script src="js/script.js"></script>
 </html>
