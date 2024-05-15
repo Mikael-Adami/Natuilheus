@@ -16,16 +16,56 @@
     include('inc/header.php');
 ?>
 <main>
+
     <section class="principal">
         <div class="textocontainer1">
             <h1>TRAZENDO O MELHOR PARA VOCÊ</h1>
             <p><a href="#products">Ver Produtos</a></p>
         </div>
     </section>
+
     <section class="publicidade">
+
+        <div class="slider">
+
+            <input type="radio" name="bt-radio" id="radio1">
+            <input type="radio" name="bt-radio" id="radio2">
+            <input type="radio" name="bt-radio" id="radio3">
+
+            <div class="slide primeiro">
+            <img src="images/teste2.jpg" alt="imagemdepublicidade">
+                
+            </div>
+
+            <div class="slide segundo">
+            <img src="images/teste1.jpg" alt="imagemdepublicidade">
+            </div>
+            
+            <div class="slide terceiro">
+                <img src="images/teste3.jpg" alt="imagemdepublicidade">
+            </div>
+
+            <nav class="navegacao-auto">
+            
+            <div class="bt-auton1"></div>
+            <div class="bt-auton2"></div>
+            <div class="bt-auton3"></div>
+            
+            </nav>
+
+            <div class="navegacao-manual">
+
+                <label for="radio1" class="bt-manual"></label>
+                <label for="radio2" class="bt-manual"></label>
+                <label for="radio3" class="bt-manual"></label>
+
+            </div>
+
+        </div>
         
     </section>
 </main>
-</body>
 <script src="js/script.js"></script>
+</body>
+
 </html>

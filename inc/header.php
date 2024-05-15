@@ -20,7 +20,7 @@
                 <a href="about.php">Sobre</a>
             </li>
             <li>
-                <a href="#products">Produtos</a>
+                <a href="#products">Loja</a>
             </li>
             <li>
                 <a href="contact.php">Contato</a>
