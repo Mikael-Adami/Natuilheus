@@ -23,9 +23,6 @@
                 <a href="#products">Produtos</a>
             </li>
             <li>
-                <a href="contact.php">Contato</a>
-            </li>
-            <li>
                 <a href="cart.php"><span class="material-icons">shopping_cart</span>[0]</a>
             </li>
         </ul>
