@@ -28,41 +28,34 @@
 
         <div class="slider">
 
-            <input type="radio" name="bt-radio" id="radio1">
-            <input type="radio" name="bt-radio" id="radio2">
-            <input type="radio" name="bt-radio" id="radio3">
-
-            <div class="slide primeiro">
-            <img src="images/teste2.jpg" alt="imagemdepublicidade">
+            <div class="slide fade" style="display: flex;">
+            <img src="images/teste2.jpg" alt="imagemdepublicidade" style="width: 100%;">
                 
             </div>
 
-            <div class="slide segundo">
-            <img src="images/teste1.jpg" alt="imagemdepublicidade">
+            <div class="slide fade">
+            <img src="images/teste1.jpg" alt="imagemdepublicidade" style="width: 100%;">
             </div>
             
-            <div class="slide terceiro">
-                <img src="images/teste3.jpg" alt="imagemdepublicidade">
+            <div class="slide fade">
+                <img src="images/teste3.jpg" alt="imagemdepublicidade" style="width: 100%;">
             </div>
-
-            <nav class="navegacao-auto">
-            
-            <div class="bt-auton1"></div>
-            <div class="bt-auton2"></div>
-            <div class="bt-auton3"></div>
-            
-            </nav>
 
             <div class="navegacao-manual">
 
-                <label for="radio1" class="bt-manual"></label>
-                <label for="radio2" class="bt-manual"></label>
-                <label for="radio3" class="bt-manual"></label>
+                <span class="bt-manual active" onclick="slideAtual(1)"></span>
+                <span class="bt-manual" onclick="slideAtual(2)"></span>
+                <span class="bt-manual" onclick="slideAtual(3)"></span>
 
             </div>
 
         </div>
         
+    </section>
+
+    <section id="products" class="produtos">
+
+    
     </section>
 </main>
 <script src="js/script.js"></script>
