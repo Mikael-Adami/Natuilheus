@@ -161,6 +161,7 @@ $pdo = null;
     <link rel="stylesheet" href="css/style.css" class="">
 </head>
 <body style="padding: 30px;">
+<a href="homeAdmin.php" class="back-button">Voltar</a>
 <div class="page-container">
     <h2>Product details</h2>
 

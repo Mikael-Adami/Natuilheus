@@ -141,53 +141,11 @@ if (isset($_POST['submit'])) {
     <title>Save product details</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <style type="text/css">
-        body {
-            padding: 30px;
-        }
-
-        .form-container {
-            margin-left: 80px;
-        }
-
-        .form-container .messages {
-            margin-bottom: 15px;
-        }
-
-        .form-container input[type="text"],
-        .form-container input[type="number"] {
-            display: block;
-            margin-bottom: 15px;
-            width: 150px;
-        }
-
-        .form-container input[type="file"] {
-            margin-bottom: 15px;
-        }
-
-        .form-container label {
-            display: inline-block;
-            float: left;
-            width: 100px;
-        }
-
-        .form-container button {
-            display: block;
-            padding: 5px 10px;
-            background-color: #8daf15;
-            color: #fff;
-            border: none;
-        }
-
-        .form-container .link-to-product-details {
-            margin-top: 20px;
-            display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css" class="">
 
 </head>
-<body>
-
+<body style="padding: 50px;">
+    <a href="homeAdmin.php" class="back-button">Voltar</a>
     <div class="form-container">
         <h2>Add a product</h2>
 
