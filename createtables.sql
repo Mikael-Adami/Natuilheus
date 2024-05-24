@@ -3,6 +3,8 @@ CREATE TABLE `products` (
   `name` varchar(100) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `description` varchar(150) DEFAULT NULL,
+  `price` decimal(6,2) DEFAULT NULL,
+  `weight` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

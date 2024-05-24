@@ -16,19 +16,29 @@ if (isset($_POST['submit'])) {
     $productName = isset($_POST['name']) ? $_POST['name'] : '';
     $productQuantity = isset($_POST['quantity']) ? $_POST['quantity'] : 0;
     $productDescription = isset($_POST['description']) ? $_POST['description'] : '';
-
+    $productPrice = isset($_POST['price']) ? $_POST['price'] : 0;
+    $productWeight = isset($_POST['weight']) ? $_POST['weight'] : '';
+    
     // Validate posted values.
     $errors = [];
     if (empty($productName)) {
-        $errors[] = 'Please provide a product name.';
+        $errors[] = 'Insira um nome para o produto.';
     }
 
     if ($productQuantity == 0) {
-        $errors[] = 'Please provide the quantity.';
+        $errors[] = 'Insira a quantidade em unidades do produto.';
     }
 
     if (empty($productDescription)) {
-        $errors[] = 'Please provide a description.';
+        $errors[] = 'Insira a descrição do produto.';
+    }
+
+    if (empty($productPrice)) {
+        $errors[] = 'Insira o preço do produto em R$.';
+    }
+
+    if (empty($productWeight)) {
+        $errors[] = 'Insira o peso do produto.';
     }
 
     // Create "uploads" directory if it doesn't exist.
@@ -79,9 +89,11 @@ if (isset($_POST['submit'])) {
         $sql = 'INSERT INTO products (
                     name,
                     quantity,
-                    description
+                    description,
+                    price,
+                    weight
                 ) VALUES (
-                    ?, ?, ?
+                    ?, ?, ?, ?, ?
                 )';
 
         // Prepare the SQL statement for execution - ONLY ONCE.
@@ -91,6 +103,8 @@ if (isset($_POST['submit'])) {
         $statement->bindParam(1, $productName, PDO::PARAM_STR);
         $statement->bindParam(2, $productQuantity, PDO::PARAM_INT);
         $statement->bindParam(3, $productDescription, PDO::PARAM_STR);
+        $statement->bindParam(4, $productPrice, PDO::PARAM_STR);
+        $statement->bindParam(5, $productWeight, PDO::PARAM_STR);
 
         // Execute the prepared SQL statement.
         $statement->execute();
@@ -126,7 +140,7 @@ if (isset($_POST['submit'])) {
         $productSaved = TRUE;
 
         // Reset the posted values, so that the default ones are now showed in the form.
-        $productName = $productQuantity = $productDescription = NULL;
+        $productName = $productQuantity = $productDescription = $productPrice = $productWeight = NULL;
     }
 }
 ?>
@@ -138,7 +152,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8" />
     <!-- The above 3 meta tags must come first in the head -->
 
-    <title>Save product details</title>
+    <title>Salvar informações do produto</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/style.css" class="">
@@ -147,7 +161,7 @@ if (isset($_POST['submit'])) {
 <body style="padding: 50px;">
     <a href="homeAdmin.php" class="back-button">Voltar</a>
     <div class="form-container">
-        <h2>Add a product</h2>
+        <h2>Adicionar produto</h2>
 
         <div class="messages">
             <?php
@@ -160,27 +174,33 @@ if (isset($_POST['submit'])) {
         </div>
 
         <form action="addProduct.php" method="post" enctype="multipart/form-data">
-            <label for="name">Name</label>
+            <label for="name">Nome</label>
             <input type="text" id="name" name="name" value="<?php echo isset($productName) ? $productName : ''; ?>">
 
-            <label for="quantity">Quantity</label>
+            <label for="quantity">Quantidade</label>
             <input type="number" id="quantity" name="quantity" min="0" value="<?php echo isset($productQuantity) ? $productQuantity : '0'; ?>">
 
-            <label for="description">Description</label>
+            <label for="description">Descrição</label>
             <input type="text" id="description" name="description" value="<?php echo isset($productDescription) ? $productDescription : ''; ?>">
 
-            <label for="file">Images</label>
+            <label for="price">Preço (em R$)</label>
+            <input type="text" id="price" name="price" value="<?php echo isset($productPrice) ? $productPrice : ''; ?>">
+
+            <label for="weight">Peso</label>
+            <input type="text" id="weight" name="weight" value="<?php echo isset($productWeight) ? $productWeight : ''; ?>">
+
+            <label for="file">Imagem</label>
             <input type="file" id="file" name="file[]" multiple>
 
             <button type="submit" id="submit" name="submit" class="button">
-                Submit
+                Enviar
             </button>
         </form>
 
         <?php
         if ($productSaved) {
             ?>
-            <a href="getProduct.php?id=<?php echo $lastInsertId; ?>" class="link-to-product-details">
+            <a href="editProduct.php?search=<?php echo $lastInsertId; ?>" class="link-to-product-details">
                 Click me to see the saved product details in <b>getProduct.php</b> (product id: <b><?php echo $lastInsertId; ?></b>)
             </a>
             <?php

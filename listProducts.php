@@ -28,6 +28,8 @@ $pdo = null;
             <th>Nome</th>
             <th>Quantidade</th>
             <th>Descrição</th>
+            <th>Preço</th>
+            <th>Peso</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -38,6 +40,8 @@ $pdo = null;
               <td><?php echo htmlspecialchars($product['name']); ?></td>
               <td><?php echo $product['quantity']; ?></td>
               <td><?php echo htmlspecialchars($product['description']); ?></td>
+              <td>R$<?php echo $product['price']; ?></td>
+              <td><?php echo htmlspecialchars($product['weight']); ?></td>
               <td>
                 <a href="editProduct.php?search=<?php echo $product['id']; ?>">Editar</a>
                 </td>

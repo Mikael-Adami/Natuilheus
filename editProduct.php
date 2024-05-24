@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_product'])) {
     $productName = isset($_POST['name']) ? $_POST['name'] : '';
     $productQuantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
     $productDescription = isset($_POST['description']) ? $_POST['description'] : '';
+    $productPrice = isset($_POST['price']) ? $_POST['price'] : 0;
+    $productWeight = isset($_POST['weight']) ? $_POST['weight'] : '';
 
     if (!$productId || !is_numeric($productId)) {
         $errors[] = 'Invalid product ID.';
@@ -42,10 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_product'])) {
         $currentProduct = fetchProductDetails($pdo, $productId);
 
         // Update product details in the database
-        if ($currentProduct['name'] !== $productName || $currentProduct['quantity'] !== $productQuantity || $currentProduct['description'] !== $productDescription) {
-            $sql = 'UPDATE products SET name = ?, quantity = ?, description = ? WHERE id = ?';
+        if ($currentProduct['name'] !== $productName || $currentProduct['quantity'] !== $productQuantity || $currentProduct['description'] !== $productDescription || $currentProduct['price'] !== $productPrice || $currentProduct['weight'] !== $productWeight) {
+            $sql = 'UPDATE products SET name = ?, quantity = ?, description = ?, price = ?, weight = ? WHERE id = ?';
             $statement = $pdo->prepare($sql);
-            $statement->execute([$productName, $productQuantity, $productDescription, $productId]);
+            $statement->execute([$productName, $productQuantity, $productDescription, $productPrice, $productWeight, $productId]);
 
             if ($statement->rowCount() === 0) {
                 $errors[] = 'Failed to update product details. Debug info: ' . json_encode($statement->errorInfo());
@@ -156,15 +158,14 @@ $pdo = null;
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
     <meta charset="UTF-8" />
-    <title>Product details</title>
+    <title>Detalhes do produto</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/style.css" class="">
 </head>
 <body style="padding: 30px;">
 <a href="homeAdmin.php" class="back-button">Voltar</a>
 <div class="page-container">
-    <h2>Product details</h2>
-
+    <h2>Detalhes do produto</h2>
     <?php
     // Display errors
     if (!empty($errors)) {
@@ -180,19 +181,27 @@ $pdo = null;
                 <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                 <table>
                     <tr>
-                        <td class="label">Name</td>
+                        <td class="label">Nome</td>
                         <td><input type="text" name="name" value="<?php echo htmlspecialchars($product['name']); ?>"></td>
                     </tr>
                     <tr>
-                        <td class="label">Quantity</td>
+                        <td class="label">Quantidade</td>
                         <td><input type="text" name="quantity" value="<?php echo htmlspecialchars($product['quantity']); ?>"></td>
                     </tr>
                     <tr>
-                        <td class="label">Description</td>
+                        <td class="label">Descrição</td>
                         <td><textarea name="description"><?php echo htmlspecialchars($product['description']); ?></textarea></td>
                     </tr>
                     <tr>
-                        <td class="label">Image</td>
+                        <td class="label">Preço (em R$)</td>
+                        <td><textarea name="price"><?php echo htmlspecialchars($product['price']); ?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Peso</td>
+                        <td><textarea name="weight"><?php echo htmlspecialchars($product['weight']); ?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Imagem</td>
                         <td><input type="file" name="image"></td>
                     </tr>
                     <tr>

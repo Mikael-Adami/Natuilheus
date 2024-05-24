@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: loginAdmin.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +30,7 @@
         <a href="listProducts.php" class="home-button button1">Listar Produtos</a>
         <a href="addProduct.php" class="home-button button2">Adicionar Produto</a>
         <a href="editProduct.php" class="home-button button3">Editar Produto</a>
+        <a href="logoutAdmin.php" class="home-button button4">Logout</a>
     </div>
 </body>
 </html>
