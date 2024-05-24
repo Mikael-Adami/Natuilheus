@@ -26,11 +26,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="css/style.css" class="">
 </head>
 <body>
+    <a href="logoutAdmin.php" class="back-button">Logout</a>
     <div class="container">
         <a href="listProducts.php" class="home-button button1">Listar Produtos</a>
         <a href="addProduct.php" class="home-button button2">Adicionar Produto</a>
         <a href="editProduct.php" class="home-button button3">Editar Produto</a>
-        <a href="logoutAdmin.php" class="home-button button4">Logout</a>
     </div>
 </body>
 </html>
