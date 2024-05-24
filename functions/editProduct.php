@@ -1,6 +1,6 @@
 <?php
 // Upload configs.
-define('UPLOAD_DIR', 'uploads');
+define('UPLOAD_DIR', '../uploads');
 define('UPLOAD_MAX_FILE_SIZE', 10485760); // 10MB.
 define('UPLOAD_ALLOWED_MIME_TYPES', 'image/jpeg,image/png,image/gif');
 
@@ -215,33 +215,33 @@ $pdo = null;
             </form>
         </div>
 
+    <?php
+    // Display images if available
+    if (!empty($images)) {
+        ?>
+        <!-- Product Images -->
+        <div class="product-images">
+            <?php foreach ($images as $image): ?>
+                <?php
+                $imageFilename = htmlspecialchars($image['filename']);
+                $imagePath = UPLOAD_DIR . '/' . $imageFilename;
+                ?>
+                <?php if (file_exists($imagePath)): ?>
+                    <img src="<?php echo $imagePath; ?>" alt="Product Image">
+                <?php else: ?>
+                    <p>Image not found: <?php echo $imagePath; ?></p>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
         <?php
-        // Display images if available
-        if (!empty($images)) {
-            ?>
-            <!-- Product Images -->
-            <div class="product-images">
-                <?php foreach ($images as $image): ?>
-                    <?php
-                    $imageFilename = htmlspecialchars($image['filename']);
-                    $imagePath = strpos($imageFilename, UPLOAD_DIR) === 0 ? $imageFilename : UPLOAD_DIR . '/' . $imageFilename;
-                    ?>
-                    <?php if (file_exists($imagePath)): ?>
-                        <img src="<?php echo $imagePath; ?>" alt="Product Image">
-                    <?php else: ?>
-                        <p>Image not found: <?php echo $imagePath; ?></p>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
-            <?php
-        } else {
-            // No images found message
-            ?>
-            <div class="product-images">
-                <p>No images available for this product.</p>
-            </div>
-            <?php
-        }
+    } else {
+        // No images found message
+        ?>
+        <div class="product-images">
+            <p>No images available for this product.</p>
+        </div>
+        <?php
+    }
     } else {
         // No product found message or search form
         ?>
