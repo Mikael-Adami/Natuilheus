@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verifique as credenciais
     if ($_POST['username'] == $username && $_POST['password'] == $password) {
         $_SESSION['loggedin'] = true;
-        header('Location: homeAdmin.php');
+        header('Location: ../index.php');
         exit;
     } else {
         $error = 'Credenciais inválidas!';

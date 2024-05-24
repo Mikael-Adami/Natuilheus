@@ -1,4 +1,7 @@
-<?php include 'functions.php';
+<?php 
+
+include 'generalFunctions.php';
+
 $pdo = pdo_connect_mysql(); // Fetch all products
 $sql = "SELECT * FROM products";
 $statement = $pdo->query($sql);
@@ -11,10 +14,10 @@ $pdo = null;
 <head>
 <meta charset="UTF-8">
 <title>Lista de Produtos</title>
-<link rel="stylesheet" href="css/style.css" class="">
+<link rel="stylesheet" href="../css/style.css" class="">
 </head>
 <body>
-<a href="homeAdmin.php" class="back-button">Voltar</a>
+<a href="../index.php" class="back-button">Voltar</a>
 <div class="page-container">
   <h2>Lista de Produtos</h2>
   <?php if (empty($products)): ?>

@@ -5,7 +5,7 @@ define('UPLOAD_DIR', 'uploads');
 define('UPLOAD_MAX_FILE_SIZE', 10485760); // 10MB.
 define('UPLOAD_ALLOWED_MIME_TYPES', 'image/jpeg,image/png,image/gif');
 
-include 'functions.php';
+include 'generalFunctions.php';
 
 $pdo = pdo_connect_mysql();
 
@@ -155,11 +155,11 @@ if (isset($_POST['submit'])) {
     <title>Salvar informações do produto</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="css/style.css" class="">
+    <link rel="stylesheet" href="../css/style.css" class="">
 
 </head>
 <body style="padding: 50px;">
-    <a href="homeAdmin.php" class="back-button">Voltar</a>
+    <a href="../index.php" class="back-button">Voltar</a>
     <div class="form-container">
         <h2>Adicionar produto</h2>
 

@@ -3,7 +3,8 @@
 define('UPLOAD_DIR', 'uploads');
 define('UPLOAD_MAX_FILE_SIZE', 10485760); // 10MB.
 define('UPLOAD_ALLOWED_MIME_TYPES', 'image/jpeg,image/png,image/gif');
-include 'functions.php';
+
+include 'generalFunctions.php';
 
 $pdo = pdo_connect_mysql();
 
@@ -160,10 +161,10 @@ $pdo = null;
     <meta charset="UTF-8" />
     <title>Detalhes do produto</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="css/style.css" class="">
+    <link rel="stylesheet" href="../css/style.css" class="">
 </head>
 <body style="padding: 30px;">
-<a href="homeAdmin.php" class="back-button">Voltar</a>
+<a href="../index.php" class="back-button">Voltar</a>
 <div class="page-container">
     <h2>Detalhes do produto</h2>
     <?php
