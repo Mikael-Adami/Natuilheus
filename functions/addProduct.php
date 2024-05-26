@@ -70,7 +70,14 @@ if (isset($_POST['submit'])) {
                             if (!move_uploaded_file($uploadedFileTempName, $uploadedFilePath)) {
                                 $errors[] = 'The file "' . $uploadedFileName . '" could not be uploaded.';
                             } else {
-                                $filenamesToSave[] = $uploadedFilePath;
+                                // Read file data to save as BLOB
+                                $imageBlob = file_get_contents($uploadedFilePath);
+
+                                // Save filename and BLOB to array for batch insert
+                                $filenamesToSave[] = [
+                                    'filename' => $uploadedFileName,
+                                    'image_blob' => $imageBlob
+                                ];
                             }
                         } else {
                             $errors[] = 'The extension of the file "' . $uploadedFileName . '" is not valid. Allowed extensions: JPG, JPEG, PNG, or GIF.';
@@ -115,19 +122,21 @@ if (isset($_POST['submit'])) {
         // Close the prepared statement.
         $statement->closeCursor();
 
-        // Save a record for each uploaded file.
-        foreach ($filenamesToSave as $filename) {
+        // Save images as BLOBs in products_images table.
+        foreach ($filenamesToSave as $file) {
             $sql = 'INSERT INTO products_images (
                         product_id,
-                        filename
+                        filename,
+                        image_blob
                     ) VALUES (
-                        ?, ?
+                        ?, ?, ?
                     )';
 
             $statement = $pdo->prepare($sql);
 
             $statement->bindParam(1, $lastInsertId, PDO::PARAM_INT);
-            $statement->bindParam(2, $filename, PDO::PARAM_STR);
+            $statement->bindParam(2, $file['filename'], PDO::PARAM_STR);
+            $statement->bindParam(3, $file['image_blob'], PDO::PARAM_LOB); // Use PARAM_LOB for BLOBs
 
             $statement->execute();
 
@@ -201,7 +210,7 @@ if (isset($_POST['submit'])) {
         if ($productSaved) {
             ?>
             <a href="editProduct.php?search=<?php echo $lastInsertId; ?>" class="link-to-product-details">
-                Click me to see the saved product details in <b>getProduct.php</b> (product id: <b><?php echo $lastInsertId; ?></b>)
+                Click me to see the saved product details in <b>editProduct.php</b> (product id: <b><?php echo $lastInsertId; ?></b>)
             </a>
             <?php
         }

@@ -1,4 +1,5 @@
 <?php
+
 // Upload configs.
 define('UPLOAD_DIR', '../uploads');
 define('UPLOAD_MAX_FILE_SIZE', 10485760); // 10MB.
@@ -14,6 +15,11 @@ $images = [];
 $errors = [];
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 
+$uploads_dir = UPLOAD_DIR;
+if (!is_dir($uploads_dir)) {
+    mkdir($uploads_dir, 0777, true);
+}
+
 // Function to fetch product details and images by ID
 function fetchProductDetails($pdo, $productId) {
     $sql = 'SELECT * FROM products WHERE id = ?';
@@ -23,10 +29,29 @@ function fetchProductDetails($pdo, $productId) {
 }
 
 function fetchProductImages($pdo, $productId) {
-    $sql = 'SELECT * FROM products_images WHERE product_id = ?';
+    global $uploads_dir;
+
+    $sql = 'SELECT filename, image_blob FROM products_images WHERE product_id = ?';
     $statement = $pdo->prepare($sql);
     $statement->execute([$productId]);
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    $images = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($images as &$image) {
+        $filename = $image['filename'];
+        $file_path = $uploads_dir . '/' . $filename;
+
+        if (!file_exists($file_path)) {
+            $image_data = $image['image_blob'];
+            if ($image_data) {
+                file_put_contents($file_path, $image_data);
+            } else {
+                // Simulate file creation if blob is empty
+                file_put_contents($file_path, '');
+            }
+        }
+    }
+
+    return $images;
 }
 
 // Handle form submission for updating product details
