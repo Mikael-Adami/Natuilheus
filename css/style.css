@@ -47,7 +47,6 @@
    font-weight: bold;
    font-size: 25px;
    margin-left: 10%;
-   font-family: KasperLullaby;
 }
 
 .paginas {
@@ -71,6 +70,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Responsividade header */
+@media screen and (max-width: 768px) {
+    .information{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    
+
 }
 
 .principal {
@@ -122,9 +134,8 @@
 .slider {
 	display: flex;
 	flex-direction: column;
-	position: relative;
 	width: 100%;
-	height: 348px;
+	height: 100%;
   }
   
   /* Hide the images by default */
@@ -136,9 +147,10 @@
   .navegacao-manual {
    	display: flex;
 	justify-content: center;
-	padding: 5px 0;
     position: absolute;
+	padding: 5px 0;
     width: 100%;
+    max-height: 20%;
     margin-top: 27%;
   }
   
@@ -146,7 +158,7 @@
   .bt-manual {
 	cursor: pointer;
 	height: 22.5px;
-	width: 22.5px;
+	width: 1.75%;
 	margin: 0 0.5%;
 	background-color: #bbb;
 	border-radius: 50%;
@@ -177,3 +189,231 @@
 	from {opacity: .3} 
 	to {opacity: 1}
   }
+
+  /* responsividade publicidade */
+  @media screen and (max-width: 768px) {
+    .navegacao-manual {
+        margin-top: 23%; /* Ajustando posição dos pontos de navegação */
+        
+    }
+
+    .bt-manual{
+        height: 14px;
+    }
+
+    }
+
+    @media screen and (max-width: 480px) { 
+    .navegacao-manual {
+        margin-top: 22%; /* Ajustando posição dos pontos de navegação */
+    }
+
+    .bt-manual{
+        height: 10px;
+    }
+
+    }
+
+    @media screen and (min-width: 770px) and (max-width: 900px) {
+        .navegacao-manual{
+            margin-top: 24%;
+        }
+
+        .bt-manual{
+            height: 18px;
+        }
+    }
+
+  .sobre {
+    background-color: #F8DEB4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 2rem 1rem; /* Ajuste para um espaçamento interno flexível */
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+}
+
+.textosobre {
+    display: flex;
+    flex-direction: column-reverse; /* Ajuste para mobile-first */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 1%;
+}
+
+.sobre > p {
+    width: 100%;
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 1rem; /* Espaçamento inferior para separar os elementos */
+    font-size: 0.75rem;
+}
+
+.arrumacaosobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-right: 0; /* Ajuste para mobile-first */
+    margin-bottom: 1rem; /* Espaçamento inferior para separar os elementos */
+}
+
+.arrumacaosobre h3 {
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+}
+
+.arrumacaosobre p {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.textosobre img {
+    width: 80%;
+    height: auto;
+    border-radius: 5%;
+    margin-bottom: 1rem; /* Espaçamento inferior para separar os elementos */
+}
+
+/* responsividade do sobre */
+@media (min-width: 768px) {
+    .textosobre {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        height: 65%;
+    }
+
+    .sobre > p {
+        width: 75%;
+        text-align: center;
+    }
+
+    .arrumacaosobre {
+        width: 40%;
+        margin-right: 5%;
+        margin-bottom: 0; /* Remove o espaçamento inferior em telas maiores */
+    }
+
+    img {
+        width: 25%;
+        height: 100%;
+        margin-bottom: 0; /* Remove o espaçamento inferior em telas maiores */
+    }
+}
+
+@media (min-width: 1024px) {
+    .sobre > p {
+        width: 50%;
+    }
+
+    .arrumacaosobre {
+        width: 30%;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: #999;
+    flex-wrap: wrap;
+}
+
+footer .rodape1c,
+footer .rodape2c,
+footer .rodape3c {
+    flex: 1;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .rodape1c img {
+    max-width: 110px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+footer .rodape2c h2,
+footer .rodape3c h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+footer .rodape2c div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+footer .rodape3c .rodapesuperior {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+footer .rodape2c span.material-icons-outlined {
+    margin-right: 10px;
+}
+
+footer .rodape3c .rodapesuperior a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #999;
+    font-size: 1.25rem;
+}
+
+footer .rodape3c .rodapesuperior a:hover {
+    color: #fff;
+}
+
+footer address.digitalize {
+    font-style: normal;
+    margin-top: 5px;
+    text-align: left;
+}
+
+footer address.digitalize a.l1 {
+    text-decoration: none;
+    color: #999;
+}
+
+footer address.digitalize a.l1:hover {
+    color: #fff;
+}
+
+/* Responsividade do rodapé */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .rodape1c,
+    footer .rodape2c,
+    footer .rodape3c {
+        flex: 1 1 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    footer .rodape3c .rodapesuperior {
+        justify-content: center;
+    }
+
+    footer .rodape3c .rodapesuperior a {
+        margin: 0 10px;
+    }
+
+    footer address.digitalize {
+        text-align: center;
+    }
+
+}
+

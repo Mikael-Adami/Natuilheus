@@ -17,10 +17,10 @@
         <a href="index.php" style="letter-spacing: 1.5px;">NATU ILHÉUS</a>
         <ul class="paginas">
             <li>
-                <a href="about.php">Sobre</a>
+                <a href="#about">Sobre</a>
             </li>
             <li>
-                <a href="#products">Produtos</a>
+                <a href="products.php">Produtos</a>
             </li>
             <li>
                 <a href="cart.php"><span class="material-icons">shopping_cart</span>[0]</a>
