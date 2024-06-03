@@ -30,7 +30,7 @@ function save_images($pdo, $product_id, $downloads_dir) {
 }
 
 // Consulta SQL para buscar todos os produtos
-$sql = "SELECT p.id, p.name, p.weight, p.price, pi.filename AS image
+$sql = "SELECT p.id, p.name, p.description, p.price, pi.filename AS image
         FROM products p
         LEFT JOIN products_images pi ON p.id = pi.product_id";
 $stmt = $pdo->query($sql);
@@ -73,7 +73,7 @@ foreach ($products as $product) {
                         <?php endif; ?>
                     </div>
                     <div class="card-title"><?php echo htmlspecialchars($product['name']); ?></div>
-                    <div class="card-subtitle"><?php echo htmlspecialchars($product['weight']); ?></div>
+                    <div class="card-subtitle"><?php echo htmlspecialchars($product['description']); ?></div>
                     <hr class="card-divider">
                     <div class="card-footer">
                         <div class="card-price"><span>R$</span> <?php echo htmlspecialchars($product['price']); ?></div>
