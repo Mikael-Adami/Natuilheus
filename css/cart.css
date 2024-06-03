@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    color: #555555;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding-bottom: 100px; /* Same height as footer */
+}
+
+h1, h2, h3, h4, h5 {
+    color: #394352;
+}
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cart-items {
+    margin-top: 20px;
+}
+
+.cart-items table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FAFAFA;
+    border: 1px solid #EEEEEE;
+}
+
+.cart-items table thead td {
+    padding: 10px 0;
+    border-bottom: 1px solid #EEEEEE;
+    text-align: left;
+}
+
+.cart-items table tbody td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    vertical-align: middle;
+}
+
+.cart-items table td.img {
+    width: 60px;
+}
+
+.cart-items table td.img img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-items table td.quantity input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.cart-items .subtotal {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cart-items .buttons {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.cart-items .buttons input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4e5c70;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-items .buttons input[type="submit"]:hover {
+    background-color: #434f61;
+}
+
+.cart-items a.remove {
+    color: #d9534f;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart-items a.remove:hover {
+    text-decoration: underline;
+}

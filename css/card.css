@@ -1,0 +1,122 @@
+.container {
+  padding: 20px;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.75vw;
+}
+.card {
+  flex: 1 1 calc(20% - 20px); /* Ajuste para 4 cards por linha */
+  max-width: calc(20% - 20px); /* Garante que os cards não se expandam além do tamanho desejado */
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  --main-focus: #2d8cf0;
+  height: 300px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:last-child {
+  justify-content: flex-end;
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Define a proporção da imagem (4:3 neste caso) */
+  overflow: hidden; /* Garante que a imagem não ultrapasse o limite do card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img img {
+  height: 100%; /* Garante que a imagem ocupe toda a altura do contêiner */
+  object-fit: cover; /* Mantém a proporção da imagem e a corta para ajustar ao tamanho definido */
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.card-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--font-color-sub);
+}
+
+.card-divider {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.card-price span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+}
+
+.card-btn {
+  height: 35px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+
+.card-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--main-color);
+  transition: all 0.3s;
+}
+
+.card-btn:hover {
+  border: 2px solid var(--main-focus);
+}
+
+.card-btn:hover svg {
+  fill: var(--main-focus);
+}
+
+.card-btn:active {
+  transform: translateY(3px);
+}
+
+.placeholder-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #f0f0f0;
+  color: #888;
+}

@@ -158,7 +158,7 @@
   .bt-manual {
 	cursor: pointer;
 	height: 22.5px;
-	width: 1.75%;
+	width: 1.5%;
 	margin: 0 0.5%;
 	background-color: #bbb;
 	border-radius: 50%;
@@ -188,6 +188,12 @@
   @keyframes fade {
 	from {opacity: .3} 
 	to {opacity: 1}
+  }
+
+  @media screen and (max-width: 1920px) {
+    .bt-manual{
+        height: 28px;
+    }
   }
 
   /* responsividade publicidade */
@@ -297,7 +303,7 @@
         margin-bottom: 0; /* Remove o espaçamento inferior em telas maiores */
     }
 
-    img {
+    .textosobre img {
         width: 25%;
         height: 100%;
         margin-bottom: 0; /* Remove o espaçamento inferior em telas maiores */
@@ -416,4 +422,3 @@ footer address.digitalize a.l1:hover {
     }
 
 }
-

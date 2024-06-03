@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'inc/generalFunctions.php';
-$pdo = pdo_connect_mysql();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,11 +19,8 @@ $pdo = pdo_connect_mysql();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php
-    include('inc/header.php');
-?>
+<?=template_header()?>
 <main>
-
     <section class="principal">
         <div class="textocontainer1">
             <h1>TRAZENDO O MELHOR PARA VOCÊ</h1>
@@ -73,11 +70,8 @@ $pdo = pdo_connect_mysql();
             <img src="images/ceo.jpg" style="width:25%; height:100%;border-radius: 5%;">
         </div>
     </section>
-    <?php
-        include('inc/footer.php');
-    ?>
+    <?=template_footer()?>
 </main>
 <script src="js/script.js"></script>
 </body>
-
 </html>
