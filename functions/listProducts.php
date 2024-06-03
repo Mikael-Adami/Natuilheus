@@ -17,7 +17,10 @@ $pdo = null;
 <link rel="stylesheet" href="../css/style.css" class="">
 </head>
 <body>
-<a href="../index.php" class="back-button">Voltar</a>
+<header class="headeradmin">
+  <a href="index.php" style="letter-spacing: 1.5px;">NATU ILHÉUS</a>
+  <a href="../index.php" class="inpageback-button">Voltar</a>
+</header>
 <div class="page-container">
   <h2>Lista de Produtos</h2>
   <?php if (empty($products)): ?>
@@ -43,9 +46,9 @@ $pdo = null;
               <td><?php echo htmlspecialchars($product['name']); ?></td>
               <td><?php echo $product['quantity']; ?></td>
               <td><?php echo htmlspecialchars($product['description']); ?></td>
-              <td>R$<?php echo $product['price']; ?></td>
-              <td><?php echo htmlspecialchars($product['weight']); ?></td>
-              <td>
+              <td style="background-color: #fff;">R$<?php echo $product['price']; ?></td>
+              <td style="background-color: #fff;"><?php echo htmlspecialchars($product['weight']); ?></td>
+              <td style="background-color: #fff;">
                 <a href="editProduct.php?search=<?php echo $product['id']; ?>">Editar</a>
                 </td>
             </tr>

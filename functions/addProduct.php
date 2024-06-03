@@ -165,10 +165,12 @@ if (isset($_POST['submit'])) {
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/style.css" class="">
-
 </head>
-<body style="padding: 50px;">
-    <a href="../index.php" class="back-button">Voltar</a>
+<body class="addprincipal">
+    <header class="headeradmin">
+        <a href="index.php" style="letter-spacing: 1.5px;">NATU ILHÉUS</a>
+        <a href="../index.php" class="inpageback-button">Voltar</a>
+    </header>
     <div class="form-container">
         <h2>Adicionar produto</h2>
 

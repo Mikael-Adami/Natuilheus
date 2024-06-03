@@ -1,3 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #F8DEB4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.inpageback-button{
+    margin-left: 40%;
+    background-color: #445045;
+    padding: 5px 10px;
+    border-radius: 15%;
+}
+
+.headeradmin{
+    background-color: #FFFAFA;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.headeradmin > a {
+    text-decoration: none;
+    color: #EDAC6E;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width:768px) {
+    .headeradmin > a {
+        font-size: 0.9rem;
+    }
+}
+
+.containeradmin {
+    background-color: #FFFAFA;
+    margin-top: 7.5%;
+    width: 30%;
+    padding: 25px 0px;
+    border-radius: 5%;
+}
+
+.formulariologinadmin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.botaologinadmin{
+    background-color: #445045;
+    padding: 4px 40px;
+    border-radius: 15%;
+    border: none;
+    color: #fff;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+   
+    .containeradmin {
+        width: 40%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+   
+   .containeradmin {
+       width: 60%;
+   }
+
+}
+
 .product-details {
     margin-bottom: 20px;
     border-collapse: collapse;
@@ -49,14 +133,29 @@
 }
 
 .container {
-    text-align: center;
+    margin-top: 5%;
+    background-color: #445045;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding-bottom: 10px;
+    border-radius: 2%;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 60%;
+    }
 }
 
 .home-button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 15px 0px;
+    width: 80%;
     margin: 10px;
-    font-size: 16px;
+    text-align: center;
+    font-size: 1em;
     border: none;
     border-radius: 5px;
     color: white;
@@ -84,15 +183,15 @@
     background-color: #e0a800;
 }
 .back-button {
-    position: absolute; /* Adjust positioning if needed */
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
+    padding: 10px 0px;
+    font-size: 0.75em;
+    width: 40%;
     background-color: #6c757d; /* Cinza */
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    text-align: center;
   }
 
   .back-button:hover {
@@ -150,7 +249,11 @@
   }
 
   .form-container {
-    margin-left: 80px;
+   margin-top: 2%;
+   background-color: #445045;
+   border-radius: 20%;
+   color: #fff;
+   padding: 20px 10px 20px 40px;
 }
 
 .form-container .messages {

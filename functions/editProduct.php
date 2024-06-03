@@ -188,8 +188,11 @@ $pdo = null;
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/style.css" class="">
 </head>
-<body style="padding: 30px;">
-<a href="../index.php" class="back-button">Voltar</a>
+<body>
+    <header class="headeradmin">
+        <a href="index.php" style="letter-spacing: 1.5px;">NATU ILHÉUS</a>
+        <a href="../index.php" class="inpageback-button">Voltar</a>
+    </header>
 <div class="page-container">
     <h2>Detalhes do produto</h2>
     <?php
