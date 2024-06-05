@@ -1,14 +1,26 @@
+.principalprodutos{
+  background-color: #f0f0f0;
+}
+.containerdecorrecao{
+  display: flex;
+  justify-content: center;
+}
 .container {
+  margin-top: 25px;
   padding: 20px;
+  background-color: #FFFAFA;
+  width: 80%;
+  font-family: "Poppins", sans-serif;
 }
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 3.75vw;
+  margin-top: 10px;
 }
 .card {
   flex: 1 1 calc(20% - 20px); /* Ajuste para 4 cards por linha */
-  max-width: calc(20% - 20px); /* Garante que os cards não se expandam além do tamanho desejado */
+  max-width: calc(19.20% - 20px); /* Garante que os cards não se expandam além do tamanho desejado */
   --font-color: #323232;
   --font-color-sub: #666;
   --bg-color: #fff;
