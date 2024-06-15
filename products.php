@@ -91,5 +91,6 @@ foreach ($products as $product) {
         </div>
     </div>
     </div>
+    <?=template_footer()?>
 </body>
 </html>

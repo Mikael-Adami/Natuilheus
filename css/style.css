@@ -322,7 +322,7 @@
 
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #333;
     color: #999;
     flex-wrap: wrap;
@@ -341,6 +341,7 @@ footer .rodape1c img {
     max-width: 110px;
     height: auto;
     margin-bottom: 10px;
+    margin-left: 10%;
 }
 
 footer .rodape2c h2,
@@ -372,7 +373,7 @@ footer .rodape3c .rodapesuperior a {
     margin-right: 10px;
     text-decoration: none;
     color: #999;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
 }
 
 footer .rodape3c .rodapesuperior a:hover {
@@ -381,7 +382,6 @@ footer .rodape3c .rodapesuperior a:hover {
 
 footer address.digitalize {
     font-style: normal;
-    margin-top: 5px;
     text-align: left;
 }
 

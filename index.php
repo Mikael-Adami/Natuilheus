@@ -3,7 +3,6 @@ session_start();
 include 'inc/generalFunctions.php';
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
